@@ -4,4 +4,11 @@
         <TargetFramework>netcoreapp3.0</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\bundles" />
+    </ItemGroup>
+
+    <ItemGroup>
+    </ItemGroup>
+
 </Project>
