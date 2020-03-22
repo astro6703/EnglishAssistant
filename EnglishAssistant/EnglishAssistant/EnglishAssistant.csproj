@@ -9,6 +9,19 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Remove="wwwroot\tsc\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="wwwroot\tsc\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="wwwroot\tsc\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="wwwroot\tsc\**" />
     </ItemGroup>
 
 </Project>
