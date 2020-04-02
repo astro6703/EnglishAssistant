@@ -1,5 +1,4 @@
-﻿using EnglishAssistant.ViewModels.Home;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace EnglishAssistant.Controllers
 {
@@ -7,7 +6,7 @@ namespace EnglishAssistant.Controllers
     {
         public IActionResult Index()
         {
-            return View(new HomeViewModel { Title = "Home page" });
+            return View();
         }
     }
 }
