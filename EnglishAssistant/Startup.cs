@@ -26,7 +26,10 @@ namespace EnglishAssistant
             }
 
             app.UseStaticFiles(new StaticFileOptions {
-                FileProvider = new PhysicalFileProvider(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "static"))
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),
+                                                                         "ClientApp",
+                                                                         "bundles")),
+                RequestPath = "/static"
             });
             app.UseRouting();
             app.UseEndpoints(endpoints =>

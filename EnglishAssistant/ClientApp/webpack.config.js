@@ -2,11 +2,9 @@
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    mode: 'none',
     entry: {
         'home/index': './src/home/index.ts'
     },
-    devtool: 'inline-source-map',
     module: {
         rules: [
             { test: /\.tsx?$/, loader: 'ts-loader', exclude: /node_modules/ },
