@@ -3,7 +3,7 @@
 module.exports = {
     mode: 'none',
     entry: {
-        index: './views/home/index/index.ts'
+        index: './src/home/index.ts'
     },
     devtool: 'inline-source-map',
     module: {
@@ -16,6 +16,7 @@ module.exports = {
         extensions: [ '.ts' ],
     },
     output: {
-        filename: '[name].js'
+        path: path.resolve(__dirname, 'bundles'),
+        filename: '[name].bundle.js'
     }
 };

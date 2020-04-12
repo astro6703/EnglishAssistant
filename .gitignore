@@ -3,8 +3,7 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-EnglishAssistant/EnglishAssistant/wwwroot/bundles/*
-EnglishAssistant/EnglishAssistant/wwwroot/tsc/*
+EnglishAssistant/ClientApp/bundles/**/*
 
 #vscode files
 .vscode

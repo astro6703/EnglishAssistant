@@ -2,6 +2,37 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <ClientAppRoot>ClientApp\</ClientAppRoot>
     </PropertyGroup>
+
+    <ItemGroup>
+        <Content Remove="$(ClientAppRoot)**" />
+        <None Include="$(ClientAppRoot)**" Exclude="$(ClientAppRoot)node_modules\**" />
+    </ItemGroup>
+
+    <Target Name="RunWebpack" AfterTargets="Build">
+        <Exec Command="node --version" ContinueOnError="true">
+            <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+        </Exec>
+        <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+        <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+        <Exec WorkingDirectory="$(ClientAppRoot)" Command="npm install" />
+        <Exec WorkingDirectory="$(ClientAppRoot)" Command="npm run webpack-build" />
+
+        <ItemGroup>
+            <WebpackBundles Include="$(ClientAppRoot)bundles\**" />
+        </ItemGroup>
+        <Copy SourceFiles="@(WebpackBundles)" DestinationFolder="$(OutputPath)\static\bundles\%(RecursiveDir)" />
+    </Target>
+
+    <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+        <Exec WorkingDirectory="$(ClientAppRoot)" Command="npm install" />
+        <Exec WorkingDirectory="$(ClientAppRoot)" Command="npm run webpack-build" />
+
+        <ItemGroup>
+            <WebpackBundles Include="$(ClientAppRoot)bundles\**" />
+        </ItemGroup>
+        <Copy SourceFiles="@(WebpackBundles)" DestinationFolder="$(PublishDir)\static\bundles\%(RecursiveDir)" />
+    </Target>
 
 </Project>
