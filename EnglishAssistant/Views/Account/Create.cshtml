@@ -1,0 +1,41 @@
+﻿@model EnglishAssistant.ViewModels.Accounts.LoginViewModel;
+
+@{
+    ViewData["Title"] = "Sign up";
+    Layout = "_Layout";
+}
+
+<link href="~/static/accounts/create.bundle.css" type="text/css" rel="stylesheet"/>
+
+<h1>Please enter your username and password</h1>
+
+@if (!Model.IsSuccessfulAttempt)
+{
+    <ul>
+        @foreach (var errorMessage in Model.ModelErrors)
+        {
+            <li>@errorMessage</li>
+        }
+    </ul>
+}
+
+<form method="post" action="@Url.Action("Create")">
+    <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" value="@Model.Username" />
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" data-bind="value: password" />
+    </div>
+
+    <div>
+        <label for="confirm-password">Confirm password</label>
+        <input type="password" id="confirm-password" name="confirm-password" data-bind="value: confirmPassword"/>
+    </div>
+
+    <input type="submit" value="Create" data-bind="enable: arePasswordsEqual" />
+</form>
+
+<script src="~/static/accounts/create.bundle.js"></script>

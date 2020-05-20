@@ -1,0 +1,31 @@
+﻿@model EnglishAssistant.ViewModels.Accounts.LoginViewModel;
+
+@{
+    ViewData["Title"] = "Sign in";
+    Layout = "_Layout";
+}
+
+<link href="~/static/accounts/login.bundle.css" type="text/css" rel="stylesheet" />
+
+<h1>Please enter your username and password</h1>
+
+@if (!Model.IsSuccessfulAttempt)
+{
+    <h1>User with such username and password was not found</h1>
+}
+
+<form method="post" action="@Url.Action("Login")">
+    <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" value="@Model.Username" />
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" data-bind="value: password" />
+    </div>
+
+    <input type="submit" value="Login" />
+</form>
+
+<script src="~/static/accounts/login.bundle.js"></script>
