@@ -1,0 +1,13 @@
+﻿@model EnglishAssistant.ViewModels.Shared.Components.UserInformationViewModel;
+
+<div>
+    @if (Model.IsAuthenticated)
+    {
+        <a href="#">@Model.Username</a>
+        <a href="@Url.Action("SignOut", "Account")">Sign out</a>
+    } else
+    {
+        <a href="@Url.Action("Create", "Account")">Sign up</a>
+        <a href="@Url.Action("Login", "Account")">Sign in</a>
+    }
+</div>

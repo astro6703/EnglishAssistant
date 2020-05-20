@@ -1,9 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@using EnglishAssistant.Components
+
+<!DOCTYPE html>
 <html>
-<head>
-    <title>@ViewData["Title"]</title>
-</head>
-<body>
-    @RenderBody()
-</body>
+    <head>
+        <title>@ViewData["Title"]</title>
+    </head>
+    <body>
+        <div>
+            <nav>
+                <a href="@Url.Action("Index", "Home")">Home</a>
+            </nav>
+            @await Component.InvokeAsync(nameof(UserInformation))
+        </div>
+        @RenderBody()
+    </body>
 </html>
