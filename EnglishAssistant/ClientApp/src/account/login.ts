@@ -1,16 +1,17 @@
 ﻿import * as ko from 'knockout';
+import 'knockout.validation';
 
 import './login.scss';
 
 class LoginViewModel {
-    private readonly password: KnockoutObservable<string>;
-    private readonly confirmPassword: KnockoutObservable<string>;
-    public readonly arePasswordsEqual: KnockoutComputed<boolean>;
+    public readonly username: KnockoutObservable<string>;
+    public readonly password: KnockoutObservable<string>;
+    public readonly isFormValid: KnockoutComputed<boolean>;
 
     constructor() {
-        this.password = ko.observable('');
-        this.confirmPassword = ko.observable('');
-        this.arePasswordsEqual = ko.pureComputed(() => this.password() === this.confirmPassword());
+        this.username = ko.observable('').extend({ required: true });
+        this.password = ko.observable('').extend({ required: true });
+        this.isFormValid = ko.pureComputed(() => this.username.isValid() && this.password.isValid());
     }
 }
 
