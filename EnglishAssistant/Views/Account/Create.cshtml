@@ -5,7 +5,7 @@
     Layout = "_Layout";
 }
 
-<link href="~/static/accounts/create.bundle.css" type="text/css" rel="stylesheet"/>
+<link href="~/static/account/create.bundle.css" type="text/css" rel="stylesheet"/>
 
 <h1>Please enter your username and password</h1>
 
@@ -22,7 +22,7 @@
 <form method="post" action="@Url.Action("Create")">
     <div>
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" value="@Model.Username" />
+        <input type="text" id="username" name="username" value="@Model.Username" data-bind="value: username" />
     </div>
 
     <div>
@@ -35,7 +35,7 @@
         <input type="password" id="confirm-password" name="confirm-password" data-bind="value: confirmPassword"/>
     </div>
 
-    <input type="submit" value="Create" data-bind="enable: arePasswordsEqual" />
+    <input type="submit" value="Create" data-bind="enable: isFormValid" />
 </form>
 
-<script src="~/static/accounts/create.bundle.js"></script>
+<script src="~/static/account/create.bundle.js"></script>
