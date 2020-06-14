@@ -1,9 +1,64 @@
 ﻿@import './nav.scss';
+@import './forms.scss';
+
+$confirmButtonColor: #5cb85c;
+$cancelButtonColor: #f44336;
+
+button {
+    line-height: 18px;
+    padding: 5px;
+    border: solid 2px #dedede;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100px;
+
+    &:hover {
+        background-color: darken(#dedede, 5%);
+    }
+
+    &:disabled {
+        background-color: darken(#dedede, 10%);
+    }
+}
+
+.confirm {
+    @extend button;
+    color: white;
+    background-color: $confirmButtonColor;
+    border: solid 2px darken($confirmButtonColor, 25%);
+
+    &:hover {
+        background-color: darken($confirmButtonColor, 10%);
+    }
+
+    &:disabled {
+        background-color: darken($confirmButtonColor, 15%);
+    }
+}
+
+.cancel {
+    @extend button;
+    color: white;
+    background-color: $cancelButtonColor;
+    border: solid 2px darken($cancelButtonColor, 25%);
+
+    &:hover {
+        background-color: darken($cancelButtonColor, 10%);
+    }
+
+    &:disabled {
+        background-color: darken($cancelButtonColor, 15%);
+    }
+}
+
+.error {
+    color: red;
+}
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    background-color: #f2f2f2;
+    background-color: #f5f2f2;
 
     .main-content-wrapper {
         margin: 20px auto;
