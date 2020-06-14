@@ -1,6 +1,11 @@
 using System;
 using System.IO;
+using EnglishAssistant.Filters;
 using EnglishAssistant.Models.User;
+using EnglishAssistant.RequestParameters;
+using EnglishAssistant.RequestParameters.Validators;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -27,7 +32,11 @@ namespace EnglishAssistant
         {
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SQLDatabase")));
             services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
-            services.AddMvc().AddRazorRuntimeCompilation();
+            services.AddTransient<IValidator<UserRequestParameters>, UserRequestParametersValidator>();
+            services.AddTransient<ValidModelStateFilter>();
+            services.AddMvc(options => options.Filters.Add(typeof(ValidModelStateFilter)))
+                    .AddRazorRuntimeCompilation()
+                    .AddFluentValidation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
