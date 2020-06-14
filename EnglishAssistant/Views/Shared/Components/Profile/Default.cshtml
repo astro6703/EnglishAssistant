@@ -5,11 +5,11 @@
         @if (Model.IsAuthenticated)
         {
             <li><a href="#">@Model.Username</a></li>
-            <li><a href="@Url.Action("SignOut", "Account")">Sign out</a></li>
+            <li><a href="@Url.Action("SignOut", "Account")">Sign<text>&nbsp;</text>out</a></li>
         } else
         {
-            <li><a href="@Url.Action("Create", "Account")">Sign up</a></li>
-            <li><a href="@Url.Action("Login", "Account")">Sign in</a></li>
+            <li><a href="@Url.Action("Create", "Account")">Sign<text>&nbsp;</text>up</a></li>
+            <li><a href="@Url.Action("Login", "Account")">Sign<text>&nbsp;</text>in</a></li>
         }
     </ul>
 </div>
