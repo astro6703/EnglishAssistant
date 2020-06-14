@@ -11,7 +11,7 @@
 
 @if (!Model.IsSuccessfulAttempt)
 {
-    <h1>User with such username and password was not found</h1>
+    <p class="error">User with such username and password was not found</p>
 }
 
 <form method="post" action="@Url.Action("Login")">
