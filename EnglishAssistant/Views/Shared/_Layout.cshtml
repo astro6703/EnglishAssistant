@@ -4,14 +4,20 @@
 <html>
     <head>
         <title>@ViewData["Title"]</title>
+        <link href="~/static/shared/layout.bundle.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
-        <div>
+        <div class="nav-line-wrapper">
             <nav>
-                <a href="@Url.Action("Index", "Home")">Home</a>
+                <ul>
+                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                </ul>
             </nav>
-            @await Component.InvokeAsync(nameof(UserInformation))
+            @await Component.InvokeAsync(nameof(Profile))
         </div>
-        @RenderBody()
+        <div class="main-content-wrapper">
+            @RenderBody()
+        </div>
+        <script src="~/static/shared/layout.bundle.js"></script>
     </body>
 </html>

@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EnglishAssistant.Components
 {
-    public class UserInformation : ViewComponent
+    public class Profile : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
             var userIdentity = User.Identity;
             var isAuthenticated = userIdentity?.IsAuthenticated ?? false;
-            var viewModel = new UserInformationViewModel
+            var viewModel = new ProfileViewModel
             {
                 IsAuthenticated = isAuthenticated,
                 Username = isAuthenticated ? userIdentity.Name : string.Empty
