@@ -11,10 +11,10 @@
 
 @if (!Model.IsSuccessfulAttempt)
 {
-    <ul>
+    <ul class="password-requirements">
         @foreach (var errorMessage in Model.ModelErrors)
         {
-            <li>@errorMessage</li>
+            <li class="error">@errorMessage</li>
         }
     </ul>
 }
