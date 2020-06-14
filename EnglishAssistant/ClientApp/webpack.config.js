@@ -3,6 +3,7 @@ const miniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
+        'shared/layout': './src/shared/layout.ts',
         'home/index': './src/home/index.ts',
         'account/login': './src/account/login.ts',
         'account/create': './src/account/create.ts'
