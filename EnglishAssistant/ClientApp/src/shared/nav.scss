@@ -1,0 +1,68 @@
+﻿$navHeight: 60px;
+
+%link-no-effects {
+    text-decoration: none;
+    text-transform: none;
+    color: black;
+
+    &:hover {
+        color: #bfbfbf;
+    }
+}
+
+%nav-link {
+    @extend %link-no-effects;
+
+    line-height: $navHeight;
+}
+
+%full-height {
+    height: 100%;
+}
+
+%nav-border {
+    border-left: solid grey 1px;
+}
+
+%nav-list {
+    ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            flex: 3 3 auto;
+            text-align: center;
+            max-width: 200px;
+
+            a {
+                @extend %nav-link;
+            }
+        }
+    }
+}
+
+.nav-line-wrapper {
+    display: flex;
+    background: white;
+    border-bottom: solid black 1px;
+    width: 100%;
+    height: $navHeight;
+    margin: 0 auto;
+
+    nav {
+        @extend %full-height;
+        @extend %nav-list;
+        margin-left: 10%;
+        width: 60%;
+    }
+
+    .profile {
+        @extend %full-height;
+        @extend %nav-border;
+        @extend %nav-list;
+        margin-right: 10%;
+        width: 20%;
+    }
+}
