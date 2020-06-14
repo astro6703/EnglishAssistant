@@ -20,10 +20,6 @@
     height: 100%;
 }
 
-%nav-border {
-    border-left: solid grey 1px;
-}
-
 %nav-list {
     ul {
         display: flex;
@@ -55,14 +51,13 @@
         @extend %full-height;
         @extend %nav-list;
         margin-left: 10%;
-        width: 60%;
+        width: 65%;
     }
 
     .profile {
         @extend %full-height;
-        @extend %nav-border;
         @extend %nav-list;
         margin-right: 10%;
-        width: 20%;
+        width: 15%;
     }
 }
