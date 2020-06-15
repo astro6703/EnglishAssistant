@@ -1,9 +1,23 @@
-﻿<!DOCTYPE html>
+﻿@using EnglishAssistant.Components
+
+<!DOCTYPE html>
 <html>
-<head>
-    <title>@ViewData["Title"]</title>
-</head>
-<body>
-    @RenderBody()
-</body>
+    <head>
+        <title>@ViewData["Title"]</title>
+        <link href="~/static/shared/layout.bundle.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="nav-line-wrapper">
+            <nav>
+                <ul>
+                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                </ul>
+            </nav>
+            @await Component.InvokeAsync(nameof(Profile))
+        </div>
+        <div class="main-content-wrapper">
+            @RenderBody()
+        </div>
+        <script src="~/static/shared/layout.bundle.js"></script>
+    </body>
 </html>

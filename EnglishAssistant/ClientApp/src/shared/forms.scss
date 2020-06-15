@@ -1,0 +1,51 @@
+﻿$textFieldWidth: 300px;
+
+%text-input {
+    min-width: $textFieldWidth;
+    border: solid 2px #dedede;
+    border-radius: 5px;
+    line-height: 18px;
+    padding: 5px;
+}
+
+input {
+    &+span {
+        display: block;
+    }
+
+    &[type=text],
+    &[type=password],
+    &[type=number] {
+        @extend %text-input;
+    }
+
+    &[type=submit] {
+        @extend .confirm;
+        margin-top: 10px;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 2px #308DE0;
+    }
+}
+
+textarea {
+    @extend %text-input;
+    resize: vertical;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.validationMessage {
+    text-align: right;
+    padding: 0 5px;
+    margin: 0 2px;
+    display: block !important;
+    width: $textFieldWidth;
+    height: 15px;
+    font-size: 12px;
+    color: red;
+}
